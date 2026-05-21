@@ -7,7 +7,7 @@ word_document:default
 ---
 
 # Calculating limiting Distribution of MarkovChain
-### 3.1ConsiderafiniteMarkovChain{Xn,n∈N}withstatespaceS={0,1,2,3}andTPMisgiven.FindthelimitingprobabilitiesofthisMarkovchain.
+### 3.1 Consider a finite Markov Chain {Xn, n∈N} with state space S={0,1,2,3} and TPM is given. Find the limiting probabilities of this Markovchain.
 
 ```{r}
 library(expm)
@@ -16,14 +16,14 @@ P=matrix(c(2,1,1,0,
 1,2,1,0,
 1,1,1,1),
 ncol=4,byrow=TRUE)/4
-#(a)Limitingdistributionvialinearequations
+#(a)Limiting distribution via linear equations
 A=rbind(t(P)-diag(4),rep(1,4))
 b=c(rep(0,4),1)
 pi_eq=solve(t(A)%*%A,t(A)%*%b)
 #(b)Powermethod
 P50=P%^%50
 P100=P%^%100
-#(c)Differentinitialdistributions
+#(c)Different initial distributions
 alpha1=c(1,0,0,0)
 alpha2=c(0.25,0.25,0.25,0.25)
 alpha1%*%P100
@@ -51,14 +51,14 @@ P=matrix(c(0,0,0,0,1,
 1/3,1/3,1/3,0,0,
 1/4,1/4,1/4,1/4,0),ncol=5,byrow=TRUE)
 
-#(b)Limitingdistribution
+#(b) Limiting distribution
 A=rbind(t(P)-diag(5),rep(1,5))
 b=c(rep(0,5),1)
 pi_eq=solve(t(A)%*%A,t(A)%*%b)
 
-#(c)Powermethod
+#(c) Power method
 P100=P%^%100
-#(d)DifferentInitialstates
+#(d) Different Initialstates
 alpha0=c(1,0,0,0,0)
 alpha4=c(0,0,0,0,1)
 alpha0%*%P100
@@ -85,7 +85,7 @@ x[1]=2
 for(i in 1:5)
 x[i+1]=sum(sample(z,size=x[i],prob=pz,replace=TRUE))
 x
-#(b)Differentseed
+#(b) Different seeds
 set.seed(10)
 x2=numeric(6)
 x2[1]=2
@@ -93,7 +93,7 @@ for(i in 1:5){
 x2[i+1]=sum(sample(z,size=x2[i],prob=pz,replace=TRUE))
 return(x2[i+1])}
 x2
-#(c)Multiplerealizations
+#(c) Multiple realizations
 paths=matrix(0,nrow=10,ncol=6)
 for(j in 1:10){
 paths[j,1]=2
