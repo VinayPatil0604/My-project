@@ -6,7 +6,7 @@ output:
 word_document:default
 ---
 
-# CalculatinglimitingDistributionofMArkovChain
+# Calculating limiting Distribution of MarkovChain
 ### 3.1ConsiderafiniteMarkovChain{Xn,n∈N}withstatespaceS={0,1,2,3}andTPMisgiven.FindthelimitingprobabilitiesofthisMarkovchain.
 
 ```{r}
@@ -32,16 +32,16 @@ pi_eq
 
 ```
 ### Conclusion:
-#### 1.Thechainisergodic(irreducible+aperiodic),soitconvergestoauniquestationarydistribution.
+#### 1.The chain is ergodic (irreducible + aperiodic), so it converges to a unique stationary distribution.
 
-#### 2.Thestationarydistributionis:π=(0.2292,0.3125,0.25,0.2083)
+#### 2.The stationary distribution is: π=(0.2292, 0.3125, 0.25, 0.2083)
 
-#### 3.Nomatterthestartingstate,aftermanytransitionstheprobabilityofbeingineachstatestabilizestothesevalues.
+#### 3.No matter the starting state, after many transitions the probability of beingin each state stabilizes to these values.
 
-#### 4.ThefactthatP^100hasidenticalrowsequaltoπconfirmsconvergence.
+#### 4.The fact that P^100 has identical rows equal to π confirms convergence.
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 
-###3.2ConsideraMarkovchain{Xn,n∈N}withstatespaceS={0,1,2,3,4}.SupposeP04=1andsupposethatwhenthechainisinstatei,i>0,thenextstateisequallylikelytobeanyofthestates0,1,···,i−1.FindthelimitingprobabilitiesofthisMarkovchain.
+### 3.2 Consider a Markov chain {Xn,n∈N} with statespace S={0,1,2,3,4}. Suppose P04=1 and suppose that when the chain is in state i, i>0, the next state is equally likely to be any of the states 0,1,···,i−1. Find the limiting probabilities of this Markovchain.
 ```{r}
 rm(list=ls())
 library(expm)
@@ -66,14 +66,14 @@ alpha4%*%P100
 pi_eq
 ```
 
-# 4.RealizationofBienayme-Galton-WatsonBranchingProcess
+# 4.Realization of Bienayme-Galton-Watson Branching Process
 
-### 4.1Let{Xn,n∈N}beaBienayme–Galton–WatsonbranchingprocesswithoffspringdistributionP(ξ=0)=0.2,P(ξ=1)=0.3,P(ξ=2)=0.2,P(ξ=3)=0.3.
-#### IfX0=2,obtainrealizationsofX1,X2,...,X5.
-#### (a)Generateonerealizationoftheprocess.
-##### (b)Repeattherealizationusingadifferentrandomseed.
-#### (c)Generate10independentrealizationsandobservethevariability.
-#### (d)Identifyifextinctionoccursinanyrealization.
+### 4.1 Let {Xn,n∈N} be a Bienayme–Galton–Watson branching process with offspring distribution P(ξ=0)=0.2, P(ξ=1)=0.3, P(ξ=2)=0.2, P(ξ=3)=0.3.
+#### If X0=2, obtain realizations of X1,X2,...,X5.
+#### (a) Generate one realization of the process.
+#### (b) Repeat the realization using a different randomseed.
+#### (c) Generate 10 independent realizations and observe the variability.
+#### (d) Identify if extinction occurs in any realization.
 ```{r}
 rm(list=ls())
 set.seed(1)
@@ -133,13 +133,13 @@ paths[j,i+1]=sum(sample(z,size=paths[j,i],prob=pz,replace=TRUE))
 }
 paths
 ```
-# 5. SimulationofPoissonProcess
-### 5.1 Let{N(t),t≥0}beaPoissonprocesswithrateλ=x.
-### (a)Simulatetheinterarrivaltimesandobtainthewaitingtimesuptot=y.
-### (b)PlotthesamplepathofN(t)for0≤t≤y.
-### (c)Repeatthesimulationusingadifferentrandomseedandcomparethepaths.
+# 5. Simulation of Poisson Process
+### 5.1 Let {N(t),t≥0} be a Poisson process with rate λ=x.
+### (a) Simulate the interarrival times and obtain the waiting times upto t=y.
+### (b) Plot the sample path of N(t) for 0 ≤ t ≤ y.
+### (c) Repeat the simulation using a different randomseed and compare the paths.
 ### Parameters:
-### (i)x=2,y=5(ii)x=4,y=9.5(iii)x=9,y=7
+### (i) x=2, y=5 (ii) x=4, y=9.5 (iii) x=9, y=7
 
 ```{r}
 PoisProc=function(lambda,time){
@@ -166,13 +166,13 @@ PoisProc(2,5)
 
 ```
 
-### 5.2 SimulatethePoissonprocessatspecifiedtimepointswithoutsimulatinginterarrivaltimes.
-(a)GenerateN(t)atthegiventimepoints.
-(b)Repeatthesimulationandcompareoutputs.
-(c)Comparethesimulatedvalueswithλt.
+### 5.2 Simulate the Poisson process at specified time points without simulating inter arrival times.
+(a) Generate N(t) at the given time points.
+(b) Repeat the simulation and compare outputs.
+(c)Compare the simulated values with λt.
 Parameters:
-(a)t=1.5,2.2,3.8,7.5,8.8,λ=1
-(b)t=1.23,2.21,2.83,6.05,7.08,17.8,λ=1.5
+(a) t = 1.5, 2.2, 3.8, 7.5, 8.8, λ = 1
+(b) t = 1.23, 2.21, 2.83, 6.05, 7.08, 17.8, λ = 1.5
 
 ```{r}
 rm(list = ls())
